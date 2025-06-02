@@ -19,7 +19,7 @@
   "keywords": [
     "embeddings",
     "nlp",
-    "portuguese", 
+    "portuguese",
     "visualization",
     "d3js",
     "transformers",
@@ -36,15 +36,16 @@
     "d3": "^7.9.0"
   },
   "devDependencies": {
-    "vite": "^5.4.0",
-    "terser": "^5.31.0"
+    "terser": "^5.31.0",
+    "vite": "^6.3.5",
+    "webpack-cli": "^5.1.4"
   },
   "engines": {
     "node": ">=16.0.0"
   },
   "browserslist": [
     "last 2 Chrome versions",
-    "last 2 Firefox versions", 
+    "last 2 Firefox versions",
     "last 2 Safari versions",
     "last 2 Edge versions"
   ],
@@ -58,7 +59,7 @@
   "homepage": "https://oliveiracwb.github.io/embeddingSearchPortugues/",
   "files": [
     "index.html",
-    "style.css", 
+    "style.css",
     "main-modular.js",
     "core/",
     "examples/",
@@ -94,4 +95,4 @@
     "node": "18.17.0",
     "npm": "9.6.7"
   }
-} 
+}
