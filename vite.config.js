@@ -1,6 +1,11 @@
 import { defineConfig } from 'vite';
 
+// Detecta se está em produção para ajustar o base do GitHub Pages
+const isProd = process.env.NODE_ENV === 'production';
+const base = isProd ? '/embeddingSearchPortugues/' : '/';
+
 export default defineConfig({
+  base,
   // Configuração para desenvolvimento
   server: {
     port: 3000,

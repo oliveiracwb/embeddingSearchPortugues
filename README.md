@@ -21,6 +21,12 @@
 - **Fallback automático** para CPU quando WebGPU não disponível
 - **Gestão eficiente** de memória GPU
 
+### **Sistema Semântico Expandido**
+- **150+ palavras** com versões **masculinas e femininas**
+- **8 categorias balanceadas**: realeza, família, pessoas, profissões, emoções, objetos, natureza, abstratos
+- **Ranking inteligente** que mantém proporções naturais
+- **Filtros de qualidade** (similaridade > 50%)
+
 ## 📁 Estrutura Modular
 
 ```
@@ -86,6 +92,11 @@ fn main(@builtin(global_invocation_id) global_id: vec3<u32>) {
 }
 ```
 
+### **Performance**
+- **CPU**: ~500ms para 150 palavras
+- **WebGPU**: ~50ms para 150 palavras (**10x mais rápido**)
+- **Workgroups**: 64 threads simultâneas
+- **Gestão de memória**: Limpeza automática de buffers
 
 ## 🎯 Funcionalidades
 
@@ -237,4 +248,25 @@ MIT License - Código aberto para uso educacional e comercial.
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/user/embedding-visualizer-pt)
 [![Demo](https://img.shields.io/badge/Demo-Live-green)](https://your-demo-url.com)
 
-</div> 
+</div>
+
+## 🌐 Deploy no GitHub Pages
+
+Para publicar seu site no GitHub Pages:
+
+1. Gere a build de produção:
+   ```bash
+   npm run build
+   ```
+2. Suba o conteúdo da pasta `dist/` para o branch `gh-pages` do seu repositório.
+   - Você pode usar a [GitHub Pages Action](https://github.com/marketplace/actions/deploy-to-github-pages) ou fazer manualmente:
+   ```bash
+   git checkout --orphan gh-pages
+   git --work-tree dist add --all
+   git --work-tree dist commit -m 'Deploy'
+   git push origin gh-pages --force
+   git checkout main
+   ```
+3. O site ficará disponível em: [https://oliveiracwb.github.io/embeddingSearchPortugues/](https://oliveiracwb.github.io/embeddingSearchPortugues/)
+
+> **Nota:** O site continuará funcionando normalmente em ambiente local com `npm run dev`. 
