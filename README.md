@@ -246,27 +246,7 @@ MIT License - Código aberto para uso educacional e comercial.
 *Arquitetura modular • Aceleração WebGPU • Design moderno*
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/user/embedding-visualizer-pt)
-[![Demo](https://img.shields.io/badge/Demo-Live-green)](https://your-demo-url.com)
+[![Demo](https://img.shields.io/badge/Demo-Live-green)](https://oliveiracwb.github.io/embeddingSearchPortugues/)
 
 </div>
 
-## 🌐 Deploy no GitHub Pages
-
-Para publicar seu site no GitHub Pages:
-
-1. Gere a build de produção:
-   ```bash
-   npm run build
-   ```
-2. Suba o conteúdo da pasta `dist/` para o branch `gh-pages` do seu repositório.
-   - Você pode usar a [GitHub Pages Action](https://github.com/marketplace/actions/deploy-to-github-pages) ou fazer manualmente:
-   ```bash
-   git checkout --orphan gh-pages
-   git --work-tree dist add --all
-   git --work-tree dist commit -m 'Deploy'
-   git push origin gh-pages --force
-   git checkout main
-   ```
-3. O site ficará disponível em: [https://oliveiracwb.github.io/embeddingSearchPortugues/](https://oliveiracwb.github.io/embeddingSearchPortugues/)
-
-> **Nota:** O site continuará funcionando normalmente em ambiente local com `npm run dev`. 
