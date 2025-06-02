@@ -92,11 +92,6 @@ fn main(@builtin(global_invocation_id) global_id: vec3<u32>) {
 }
 ```
 
-### **Performance**
-- **CPU**: ~500ms para 150 palavras
-- **WebGPU**: ~50ms para 150 palavras (**10x mais rápido**)
-- **Workgroups**: 64 threads simultâneas
-- **Gestão de memória**: Limpeza automática de buffers
 
 ## 🎯 Funcionalidades
 
