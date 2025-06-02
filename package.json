@@ -1,0 +1,97 @@
+{
+  "name": "embedding-visualizer-pt-modular",
+  "version": "2.0.0",
+  "description": "Sistema modular de visualização interativa de embeddings em português com aceleração WebGPU",
+  "type": "module",
+  "main": "main-modular.js",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "compact": "npm run build && node compact.bat",
+    "serve": "vite preview --port 3000",
+    "clean": "rm -rf dist node_modules/.vite",
+    "test": "echo \"Testes serão implementados na v2.1\" && exit 0",
+    "benchmark": "echo \"Abra http://localhost:3000/benchmark.js no navegador\"",
+    "examples": "echo \"Veja examples/module-usage.js para exemplos de uso\"",
+    "stats": "npm run build -- --mode=analyze"
+  },
+  "keywords": [
+    "embeddings",
+    "nlp",
+    "portuguese", 
+    "visualization",
+    "d3js",
+    "transformers",
+    "webgpu",
+    "semantic-search",
+    "modular",
+    "javascript",
+    "es2020"
+  ],
+  "author": "Embedding Visualizer Team",
+  "license": "MIT",
+  "dependencies": {
+    "@xenova/transformers": "^3.0.0",
+    "d3": "^7.9.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "terser": "^5.31.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions", 
+    "last 2 Safari versions",
+    "last 2 Edge versions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/embedding-visualizer-pt"
+  },
+  "bugs": {
+    "url": "https://github.com/user/embedding-visualizer-pt/issues"
+  },
+  "homepage": "https://your-demo-url.com",
+  "files": [
+    "index.html",
+    "style.css", 
+    "main-modular.js",
+    "core/",
+    "examples/",
+    "vite.config.js",
+    "README.md",
+    "benchmark.js"
+  ],
+  "exports": {
+    ".": "./main-modular.js",
+    "./core/*": "./core/*",
+    "./examples/*": "./examples/*"
+  },
+  "config": {
+    "webgpu": {
+      "enabled": true,
+      "fallback": "cpu"
+    },
+    "model": {
+      "name": "Xenova/multilingual-e5-small",
+      "size": "120MB",
+      "dimensions": 384
+    },
+    "visualization": {
+      "maxNodes": 20,
+      "threshold": 0.5
+    }
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/embedding-visualizer"
+  },
+  "volta": {
+    "node": "18.17.0",
+    "npm": "9.6.7"
+  }
+} 
