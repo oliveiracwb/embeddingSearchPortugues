@@ -21,12 +21,6 @@
 - **Fallback automático** para CPU quando WebGPU não disponível
 - **Gestão eficiente** de memória GPU
 
-### **Sistema Semântico Expandido**
-- **150+ palavras** com versões **masculinas e femininas**
-- **8 categorias balanceadas**: realeza, família, pessoas, profissões, emoções, objetos, natureza, abstratos
-- **Ranking inteligente** que mantém proporções naturais
-- **Filtros de qualidade** (similaridade > 50%)
-
 ## 📁 Estrutura Modular
 
 ```
