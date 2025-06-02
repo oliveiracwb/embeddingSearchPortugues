@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Embeddings PT - v2.0 Modular</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <script type="module" crossorigin src="/embeddingSearchPortugues/assets/index-DfaVL4gi.js"></script>
+  <link rel="modulepreload" crossorigin href="/embeddingSearchPortugues/assets/vendor-DloOgCCB.js">
+  <link rel="modulepreload" crossorigin href="/embeddingSearchPortugues/assets/core-8d0Ef0yU.js">
+  <link rel="stylesheet" crossorigin href="/embeddingSearchPortugues/assets/index-BTqcOobO.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Indicador WebGPU -->
+        <div id="webgpuIndicator" class="webgpu-indicator">
+            ⚡ Aceleração WebGPU Ativada!
+        </div>
+
+        <!-- Status e loading -->
+        <div id="statusBar" class="status-bar">
+            <span id="statusText">Carregando modelo...</span>
+            <div id="progressBar" class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <header class="header">
+            <h1>🧠 Visualizador de Embeddings</h1>
+            <p>Explore relações semânticas entre palavras em português</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Sistema de Abas -->
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button id="searchTab" class="tab-btn active">🔍 Pesquisa Semântica</button>
+                    <button id="mathTab" class="tab-btn">🧮 Cálculo Semântico</button>
+                </div>
+
+                <!-- Aba de Pesquisa Semântica -->
+                <div id="searchTabContent" class="tab-content active">
+                    <section class="search-section">
+                        <div class="input-group">
+                            <input type="text" id="wordInput" placeholder="Digite uma palavra..." autocomplete="off">
+                            <button id="searchBtn" class="btn-primary">
+                                <span class="btn-text">Buscar</span>
+                                <span class="loading-spinner" style="display: none;">⏳</span>
+                            </button>
+                        </div>
+                        
+                        <div class="quick-examples">
+                            <span>Exemplos:</span>
+                            <button class="example-btn" data-word="rei">rei</button>
+                            <button class="example-btn" data-word="mulher">mulher</button>
+                            <button class="example-btn" data-word="feliz">feliz</button>
+                            <button class="example-btn" data-word="casa">casa</button>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Aba de Cálculo Semântico -->
+                <div id="mathTabContent" class="tab-content">
+                    <section class="math-section">
+                        <h3>🧮 Cálculo Semântico</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
+                            Digite uma expressão matemática com palavras. As palavras da expressão não aparecerão nos resultados.
+                        </p>
+                        <div class="math-input-group">
+                            <input type="text" id="mathExpression" placeholder="Ex: rei + mulher, saúde + mulher" class="math-expression-input">
+                            <button id="calculateBtn" class="btn-secondary">
+                                <span class="calc-btn-text">Calcular</span>
+                                <span class="calc-loading-spinner" style="display: none;">⏳</span>
+                            </button>
+                        </div>
+                        <div class="math-examples">
+                            <button class="math-example-btn" data-expr="rei + mulher">rei + mulher</button>
+                            <button class="math-example-btn" data-expr="rei - homem + mulher">rei - homem + mulher</button>
+                            <button class="math-example-btn" data-expr="França + Brasil">Paris - França + Brasil</button>
+                            <button class="math-example-btn" data-expr="professor + mulher">professor + mulher</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Resultados -->
+            <section class="results-section">
+                <div class="results-header">
+                    <h3 id="resultsTitle">Resultados</h3>
+                </div>
+
+                <!-- Vista de grafo (sempre visível) -->
+                <div class="visualization-container">
+                    <h4 class="viz-title">🕸️ Grafo de Relações</h4>
+                    <div id="networkGraph" class="network-graph"></div>
+                </div>
+
+                <!-- Vista de lista (sempre visível) -->
+                <div class="visualization-container">
+                    <h4 class="viz-title">📋 Lista Detalhada</h4>
+                    <div id="similarWords" class="similar-words-grid"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Seção Educativa sobre Embeddings -->
+        <section class="education-section">
+            <div class="education-content">
+                <h2>🎓 Como Funcionam os Embeddings?</h2>
+                <p class="section-description">
+                    Imagine que cada palavra no mundo tem um <strong>"endereço" numérico</strong>, e palavras com significados parecidos moram em bairros próximos. Essa é a ideia central dos embeddings! Eles são a mágica por trás de como computadores <strong>"entendem"</strong> a linguagem humana, transformando palavras em números que revelam suas relações e contextos.
+                </p>
+        
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h3>🔢 Espaço Vetorial Multidimensional</h3>
+                        <p>
+                            Embeddings convertem palavras, frases e até documentos inteiros em <strong>vetores numéricos</strong> — longas sequências de números (centenas ou milhares deles). Pense nisso como um mapa super complexo onde cada número representa uma característica do significado da palavra. Se <strong>"cachorro"</strong> e <strong>"gato"</strong> são similares, seus vetores apontarão para direções muito próximas nesse mapa, enquanto <strong>"montanha"</strong> e <strong>"carro"</strong> estarão distantes. Essa proximidade permite que o computador "enxergue" a semelhança semântica.
+                        </p>
+                    </div>
+        
+                    <div class="education-card">
+                        <h3>🧩 Tokenização e Treinamento de Modelos</h3>
+                        <p>
+                            O primeiro passo é quebrar o texto em <strong>tokens</strong>. Um token pode ser uma palavra, parte de uma palavra (como <em>"casa"</em> em <em>"casarão"</em>), ou até pontuações. Cada um desses tokens é então alimentado a um <strong>modelo de rede neural</strong> (como Word2Vec, GloVe, ou FastText) que foi "treinado" em quantidades gigantescas de texto (livros, artigos, conversas). Durante esse treinamento, o modelo aprende a prever palavras baseadas em seu contexto, e é assim que ele "descobre" e atribui um vetor numérico para cada token, codificando seu significado.
+                        </p>
+                    </div>
+        
+                    <div class="education-card">
+                        <h3>📐 Similaridade de Cosseno: Medindo a Proximidade</h3>
+                        <p>
+                            Como sabemos o quão parecidas duas palavras são nesse espaço numérico? Usamos a <strong>Similaridade de Cosseno</strong>. Essa métrica calcula o cosseno do ângulo entre os vetores de duas palavras. Um valor próximo de <strong>1</strong> significa que os vetores estão quase alinhados, indicando alta similaridade semântica (ex: <em>"carro"</em> e <em>"automóvel"</em>). Um valor próximo de <strong>0</strong> indica que não há relação clara, e valores negativos sugerem significados opostos. É como medir a "direção" dos significados das palavras.
+                        </p>
+                    </div>
+        
+                    <div class="education-card">
+                        <h3>➕ Operações Matemáticas com Semântica</h3>
+                        <p>
+                            A característica mais fascinante dos embeddings é a capacidade de realizar <strong>operações matemáticas</strong> que revelam relações semânticas. A famosa analogia <em>"rei - homem + mulher = rainha"</em> é um exemplo perfeito. Se subtrairmos o vetor de <em>"homem"</em> do vetor de <em>"rei"</em> e adicionarmos o vetor de <em>"mulher"</em>, o vetor resultante será incrivelmente próximo ao vetor de <em>"rainha"</em>. Isso mostra que os embeddings conseguem capturar analogias e relações de gênero, pluralidade, capital-país, e muito mais, tornando a linguagem "calculável".
+                        </p>
+                    </div>
+        
+                    <div class="education-card">
+                        <h3>🔍 Palavras Fora do Vocabulário (OOV)</h3>
+                        <p>
+                            O que acontece se você digita uma palavra que o modelo de embeddings nunca viu antes? É aqui que entra o tratamento de <strong>Palavras Fora do Vocabulário (OOV)</strong>. Modelos como o <strong>FastText</strong> são excelentes nisso, pois eles não apenas aprendem embeddings para palavras inteiras, mas também para pedaços menores de palavras (subpalavras ou n-grams de caracteres). Isso permite que, mesmo para uma palavra nova ou um erro de digitação, o modelo consiga construir um vetor razoável combinando os vetores de suas partes, mantendo a funcionalidade.
+                        </p>
+                    </div>
+        
+                    <div class="education-card">
+                        <h3>⚡ Leveza e Performance com WebAssembly</h3>
+                        <p>
+                            Para garantir que nossa ferramenta funcione de forma rápida e eficiente diretamente no seu navegador, usamos <strong>WebAssembly</strong>. Essa tecnologia permite que o código complexo (como o que manipula e calcula os embeddings) seja executado quase na mesma velocidade de um programa nativo. Isso significa que as operações com milhares de números acontecem em um piscar de olhos, proporcionando uma experiência fluida e interativa sem sobrecarregar seu dispositivo.
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="model-info">
+                    <h3>🤖 Modelo de Embeddings Utilizado</h3>
+                    <p>
+                        Esta ferramenta utiliza o modelo <strong>FastText pré-treinado em Português</strong> (o famoso <code>cc.pt.300.ftz</code>). Este modelo foi escolhido por sua excelente capacidade de capturar a riqueza da língua portuguesa, lidar com palavras que não estão no vocabulário (graças ao seu aprendizado baseado em subpalavras) e, crucialmente, por ser <strong>quantizado</strong>. A quantização permite que o modelo seja muito mais leve (pesando menos de 500 MB), tornando-o ideal para ser carregado e executado eficientemente diretamente no seu navegador via WebAssembly, sem comprometer a qualidade das análises semânticas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer com LinkedIn -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>
+                    💡 Interessado em <strong>Inteligência Artificial</strong> e <strong>Machine Learning</strong>?
+                </p>
+                <p>
+                    Conecte-se comigo no LinkedIn para conversas sobre IA :
+                </p>
+                <a href="https://www.linkedin.com/in/israeloliveira2035/" target="_blank" class="linkedin-link">
+                    🔗 LinkedIn - Israel Oliveira
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Main Script - Modular Version -->
+</body>
+</html> 
