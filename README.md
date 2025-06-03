@@ -1,3 +1,10 @@
+[![NodeJS with Webpack](https://github.com/oliveiracwb/embeddingSearchPortugues/actions/workflows/webpack.yml/badge.svg)](https://github.com/oliveiracwb/embeddingSearchPortugues/actions/workflows/webpack.yml)
+
+**🧠 Embedding Visualizer PT v2.0**  
+*Arquitetura modular • Aceleração WebGPU • Design moderno*
+[![Demo](https://img.shields.io/badge/Demo-Live-green)](https://oliveiracwb.github.io/embeddingSearchPortugues/)
+
+
 # 🧠 Visualizador de Embeddings PT v2.0 - Modular
 
 > **Sistema modular de visualização interativa de embeddings em português com aceleração WebGPU**
@@ -239,14 +246,4 @@ MIT License - Código aberto para uso educacional e comercial.
 6. **Submit** Pull Request
 
 ---
-
-<div align="center">
-
-**🧠 Embedding Visualizer PT v2.0**  
-*Arquitetura modular • Aceleração WebGPU • Design moderno*
-
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/user/embedding-visualizer-pt)
-[![Demo](https://img.shields.io/badge/Demo-Live-green)](https://oliveiracwb.github.io/embeddingSearchPortugues/)
-
-</div>
 
