@@ -2,8 +2,8 @@ import { pipeline, env } from '@xenova/transformers';
 import * as d3 from 'd3';
 
 // Configuração do ambiente
-env.allowRemoteModels = true;
 env.allowLocalModels = false;
+env.allowRemoteModels = true;
 
 class AdvancedEmbeddingVisualizer {
     constructor() {
